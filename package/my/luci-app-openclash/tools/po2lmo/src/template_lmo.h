@@ -90,3 +90,4 @@ int lmo_translate(const char *key, int keylen, char **out, int *outlen);
 void lmo_close_catalog(const char *lang);
 
 #endif
+
