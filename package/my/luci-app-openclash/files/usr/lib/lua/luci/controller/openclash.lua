@@ -17,6 +17,7 @@ function index()
 	entry({"admin", "services", "openclash", "update_ma"},call("action_update_ma"))
 	entry({"admin", "services", "openclash", "opupdate"},call("action_opupdate"))
 	entry({"admin", "services", "openclash", "coreupdate"},call("action_coreupdate"))
+	entry({"admin", "services", "openclash", "ping"}, call("act_ping"))
 	entry({"admin", "services", "openclash", "settings"},cbi("openclash/settings"),_("Global Settings"), 30).leaf = true
 	entry({"admin", "services", "openclash", "servers"},cbi("openclash/servers"),_("Severs&Groups"), 40).leaf = true
   entry({"admin", "services", "openclash", "servers-config"},cbi("openclash/servers-config"), nil).leaf = true
@@ -37,7 +38,7 @@ local function is_web()
 end
 
 local function is_watchdog()
-	return luci.sys.exec("ps |grep openclash_watchdog.sh |grep -v grep 2>/dev/null")
+	return luci.sys.exec("ps |grep openclash_watchdog.sh |grep -v grep 2>/dev/null |sed -n 1p")
 end
 
 local function config_check()
@@ -78,7 +79,7 @@ local function config_check()
 end
 
 local function cn_port()
-	return luci.sys.exec("uci get openclash.config.cn_port 2>/dev/null")
+	return luci.sys.exec("uci get openclash.config.cn_port 2>/dev/null |tr -d '\n'")
 end
 
 local function mode()
@@ -121,7 +122,7 @@ local function ConnersHua_return()
 end
 
 local function daip()
-	return luci.sys.exec("uci get network.lan.ipaddr")
+	return luci.sys.exec("uci get network.lan.ipaddr 2>/dev/null |awk -F '/' '{print $1}' 2>/dev/null |tr -d '\n'")
 end
 
 local function dase()
@@ -141,11 +142,11 @@ local function startlog()
 end
 
 local function coremodel()
-  local coremodel = luci.sys.exec("cat /proc/cpuinfo |grep 'cpu model'  2>/dev/null |awk -F ': ' '{print $2}' 2>/dev/null")
-  if (coremodel ~= "") then
-      return coremodel
-  else
+  local coremodel = luci.sys.exec("cat /proc/cpuinfo |grep 'cpu model' 2>/dev/null |awk -F ': ' '{print $2}' 2>/dev/null")
+  if not coremodel or coremodel == "" then
      return luci.sys.exec("opkg status libc 2>/dev/null |grep 'Architecture' |awk -F ': ' '{print $2}' 2>/dev/null")
+  else
+     return coremodel
   end
 end
 
@@ -252,10 +253,10 @@ function action_update()
 			coremodel = coremodel(),
 			coremodel2 = coremodel2(),
 			corecv = corecv(),
-			corelv = corelv(),
 			opcv = opcv(),
 			corever = corever(),
 			upchecktime = upchecktime(),
+			corelv = corelv(),
 			oplv = oplv();
 	})
 end
@@ -280,4 +281,12 @@ function action_coreupdate()
 	luci.http.write_json({
 			coreup = coreup();
 	})
+end
+
+function act_ping()
+	local e={}
+	e.index=luci.http.formvalue("index")
+	e.ping=luci.sys.exec("ping -c 1 -W 1 %q 2>&1 | grep -o 'time=[0-9]*.[0-9]' | awk -F '=' '{print$2}'"%luci.http.formvalue("domain"))
+	luci.http.prepare_content("application/json")
+	luci.http.write_json(e)
 end
