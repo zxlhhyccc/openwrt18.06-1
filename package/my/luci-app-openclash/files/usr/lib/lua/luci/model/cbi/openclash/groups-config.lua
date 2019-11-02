@@ -1,6 +1,3 @@
--- Copyright (C) 2017 yushi studio <ywb94@qq.com> github.com/ywb94
--- Licensed to the public under the GNU General Public License v3.
-
 local m, s, o
 local openclash = "openclash"
 local uci = luci.model.uci.cursor()
@@ -8,6 +5,10 @@ local fs = require "nixio.fs"
 local sys = require "luci.sys"
 local sid = arg[1]
 
+font_red = [[<font color="red">]]
+font_off = [[</font>]]
+bold_on  = [[<strong>]]
+bold_off = [[</strong>]]
 
 m = Map(openclash, translate("Edit Group"))
 m.pageaction = false
@@ -48,7 +49,7 @@ o:depends("type", "fallback")
 o:depends("type", "load-balance")
 
 o = s:option(DynamicList, "other_group", translate("Other Group"))
-o.description = translate("The added Proxy Groups Must Exist")
+o.description = font_red..bold_on..translate("The Added Proxy Groups Must Exist Except 'DIRECT' & 'REJECT'")..bold_off..font_off
 uci:foreach("openclash", "groups",
 		function(s)
 		  if s.name ~= "" and s.name ~= nil and s.name ~= m.uci:get(openclash, sid, "name") then
@@ -69,17 +70,17 @@ o = a:option(Button,"Commit")
 o.inputtitle = translate("Commit Configurations")
 o.inputstyle = "apply"
 o.write = function()
-   uci:commit(openclash, sid)
+   m.uci:commit(openclash)
    sys.call("/usr/share/openclash/yml_groups_name_ch.sh start")
-   luci.http.redirect(luci.dispatcher.build_url("admin", "services", "openclash", "servers"))
+   luci.http.redirect(m.redirect)
 end
 
 o = a:option(Button,"Back")
 o.inputtitle = translate("Back Configurations")
 o.inputstyle = "reset"
 o.write = function()
-   uci:revert(openclash, sid)
-   luci.http.redirect(luci.dispatcher.build_url("admin", "services", "openclash", "servers"))
+   m.uci:revert(openclash)
+   luci.http.redirect(m.redirect)
 end
 
 return m
