@@ -686,32 +686,33 @@
 	<table width="100%" cellspacing="10">
 		<tr><td width="33%"><%:Hostname%></td><td><%=luci.sys.hostname() or "?"%></td></tr>
 		<tr><td width="33%"><%:Model%></td><td><%=pcdata(boardinfo.model or boardinfo.system or "?")%></td></tr>
-		<tr><td width="33%"><%:CPU Info%></td><td><%=luci.sys.exec("grep 'MHz' /proc/cpuinfo | cut -c11- |sed -n '1p'")%> MHz</td></tr>
-        <tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("sensors | grep 'Core' | cut -c10-24")%></td></tr>
+		
+		<tr><td width="33%"><%:CPU Info%></td><td><%=luci.sys.exec("grep 'MHz' /proc/cpuinfo | cut -c11- |sed -n '1p'")%> MHz <%=luci.sys.exec("cat /etc/bench.log") or " "%> <%=luci.sys.exec("sensors | grep 'Core 0' | cut -c10-24")%></td></tr>
+        
 		<tr><td width="33%"><%:Firmware Version%></td><td>
 			<%=pcdata(ver.distname)%> <%=pcdata(ver.distversion)%> /
 			<%=pcdata(ver.luciname)%> (<%=pcdata(ver.luciversion)%>)
 		</td></tr>
+                                  
 		<tr><td width="33%"><%:Kernel Version%></td><td><%=unameinfo.release or "?"%></td></tr>
+                
 		<tr><td width="33%"><%:Local Time%></td><td id="localtime">-</td></tr>
 		<tr><td width="33%"><%:Uptime%></td><td id="uptime">-</td></tr>
 		<tr><td width="33%"><%:Load Average%></td><td id="loadavg">-</td></tr>
-		<tr><td width="33%"><%:CPU usage (%)%></td><td id="cpuusage">-</td></tr>
-		<tr><td width="33%"><%:help%></td>
+		<tr><td width="33%">&#67;&#80;&#85;&#32;&#20351;&#29992;&#29575; (%)</td><td id="cpuusage">-</td></tr>
+			<tr><td width="33%">&#26412;&#22320;&#22825;&#27668;</td>
 			<td id="cpr">
-				<input type="button" class="cbi-button cbi-button-apply" value="<%:Firmware-Update%>" onclick="window.open('https://github.com/ntlf9t/openwrt_update/releases')" />
-				<input type="button" class="cbi-button cbi-button-apply" value="<%:Problem feedback%>" onclick="window.open('https://github.com/ntlf9t/openwrt_update/issues')" />
-				<input type="button" class="cbi-button cbi-button-apply" value="<%:TG_investigation%>" onclick="window.open('https://t.me/joinchat/MHkJCxH8gUdV4UFBrxw_Ow')" />
-				</td>
+         
+	
+<iframe width="320" scrolling="no" height="100" frameborder="0" allowtransparency="true" src="&#104;&#116;&#116;&#112;&#58;&#47;&#47;&#105;&#46;&#116;&#105;&#97;&#110;&#113;&#105;&#46;&#99;&#111;&#109;&#47;&#105;&#110;&#100;&#101;&#120;&#46;&#112;&#104;&#112;?c=code&id=7&icon=5&num=20"></iframe>
+	</td>
 			</tr>
 	</table>
-</fieldset>
-
+</fieldset
 <fieldset class="cbi-section">
-	<legend><%:Memory%></legend>
+	
 
 	<table width="100%" cellspacing="10">
-		<tr><td width="33%"><%:Free Memory%></td><td ><input type="button" class="cbi-button cbi-button-apply" name="Free_Memory" value="<%:Free Memory%>" onclick="location.href='<%=luci.dispatcher.build_url("admin/status/release_ram")%>'" /></td></tr>
 		<tr><td width="33%"><%:Total Available%></td><td id="memtotal">-</td></tr>
 		<tr><td width="33%"><%:Free%></td><td id="memfree">-</td></tr>
 		<tr><td width="33%"><%:Buffered%></td><td id="membuff">-</td></tr>
