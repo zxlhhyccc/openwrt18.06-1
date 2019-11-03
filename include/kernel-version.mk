@@ -32,6 +32,7 @@ ifdef KERNEL_TESTING_PATCHVER
 endif
 endif
 
+
 split_version=$(subst ., ,$(1))
 merge_version=$(subst $(space),.,$(1))
 KERNEL_BASE=$(firstword $(subst -, ,$(LINUX_VERSION)))
