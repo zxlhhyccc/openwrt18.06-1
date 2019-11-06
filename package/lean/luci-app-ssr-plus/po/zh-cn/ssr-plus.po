@@ -209,7 +209,7 @@ msgid "Appointlist List"
 msgstr "指定列表"
 
 msgid "udp2raw tunnel"
-msgstr "隧道"
+msgstr "UDP2raw"
 
 msgid "Enable udp2raw"
 msgstr "启用 udp2raw"
