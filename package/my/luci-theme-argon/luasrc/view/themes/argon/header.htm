@@ -133,9 +133,10 @@
 
 				if #grandchildren > 0 then
 					local title = pcdata(striptags(translate(nnode.title)))
+					local en_title = pcdata(striptags(string.gsub(nnode.title," ","_")))
 
 					write('<li class="slide"><a class="menu" data-title="%s" href="#">%s</a>' %{
-						title,
+						en_title,
 						title
 					})
 
@@ -143,9 +144,10 @@
 					write('</li>')
 				else
 					local title = pcdata(striptags(translate(nnode.title)))
+					local en_title = pcdata(striptags(string.gsub(nnode.title," ","_")))
 
 					write('<li><a data-title="%s" href="%s">%s</a></li>' %{
-						title,
+						en_title,
 						nodeurl(category, r, nnode.query),
 						title
 					})
@@ -203,7 +205,7 @@
     <link rel="icon" href="<%=media%>/logo.png" sizes="144x144">
     <link rel="apple-touch-icon-precomposed" href="<%=media%>/logo.png" sizes="144x144">
 
-    <link rel="stylesheet" href="<%=media%>/css/style.css">
+    <link rel="stylesheet" href="<%=media%>/css/style.css?v=git-19.010.30902-fbc92dc">
     <link rel="shortcut icon" href="<%=media%>/favicon.ico">
     <% if node and node.css then %>
         <link rel="stylesheet" href="<%=resource%>/<%=node.css%>">
@@ -211,8 +213,9 @@
     <% if css then %>
         <style title="text/css"><%= css %></style>
     <% end -%>
-    <script src="<%=resource%>/xhr.js"></script>
-	<script src="<%=media%>/js/jquery.min.js"></script>
+	<script src="<%=resource%>/cbi.js?v=git-19.060.34677-e62cc32"></script>
+    <script src="<%=resource%>/xhr.js?v=git-19.010.30902-fbc92dc"></script>
+	<script src="<%=media%>/js/jquery.min.js?v=git-19.010.30902-fbc92dc"></script>
 </head>
 <body class="lang_<%=luci.i18n.context.lang%> <%- if node then %><%= striptags( node.title ) %><%- end %> <% if luci.dispatcher.context.authsession then %>logged-in<% end %>">
 <header>
