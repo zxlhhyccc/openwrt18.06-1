@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=udpspeeder
-PKG_VERSION:=20171125.0
+PKG_VERSION:=20190121.0.conf
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/wangyu-/UDPspeeder.git
-PKG_SOURCE_VERSION:=3a0acf0de2cd40956dd3a77dd4afde730a60c597
+PKG_SOURCE_URL:=https://github.com/zhfreal/UDPspeeder.git
+PKG_SOURCE_VERSION:=0fe8195e474014c29b66aedd096c0e1eefd77ed3
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
 
@@ -31,7 +31,7 @@ define Package/udpspeeder
 	SECTION:=net
 	CATEGORY:=Network
 	TITLE:=UDP Network Speed-Up Tool
-	URL:=https://github.com/wangyu-/UDPspeeder
+	URL:=https://github.com/zhfreal/UDPspeeder
 	DEPENDS:= +libstdcpp +librt
 endef
 
