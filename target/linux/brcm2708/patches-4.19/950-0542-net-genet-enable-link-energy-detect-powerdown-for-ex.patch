@@ -17,8 +17,7 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.org>
 ---
  drivers/net/ethernet/broadcom/genet/bcmmii.c | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
- 
- 
+
 --- a/drivers/net/ethernet/broadcom/genet/bcmmii.c
 +++ b/drivers/net/ethernet/broadcom/genet/bcmmii.c
 @@ -286,6 +286,8 @@ int bcmgenet_mii_probe(struct net_device
@@ -30,4 +29,3 @@ Signed-off-by: Jonathan Bell <jonathan@raspberrypi.org>
  
  	/* Initialize link state variables that bcmgenet_mii_setup() uses */
  	priv->old_link = -1;
-
