@@ -28,7 +28,7 @@ ifeq ($(BOARD),kirkwood)
 	PKG_ARCH_KCPTUN:=arm5
 endif
 
-PKG_NAME:=kcptun
+PKG_NAME:=kcptun-client
 PKG_VERSION:=20190725
 PKG_RELEASE:=3
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
