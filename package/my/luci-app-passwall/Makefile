@@ -81,7 +81,7 @@ define Package/$(PKG_NAME)
   +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_socks:shadowsocksr-libev-ssr-local \
   +PACKAGE_$(PKG_NAME)_INCLUDE_V2ray:v2ray \
   +PACKAGE_$(PKG_NAME)_INCLUDE_Brook:brook \
-  +PACKAGE_$(PKG_NAME)_INCLUDE_kcptun:kcptun \
+  +PACKAGE_$(PKG_NAME)_INCLUDE_kcptun:kcptun-client \
   +PACKAGE_$(PKG_NAME)_INCLUDE_haproxy:haproxy \
   +PACKAGE_$(PKG_NAME)_INCLUDE_ChinaDNS:ChinaDNS \
   +PACKAGE_$(PKG_NAME)_INCLUDE_pdnsd:pdnsd-alt \
