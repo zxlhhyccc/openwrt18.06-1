@@ -27,7 +27,7 @@ Signed-off-by: Georgi Djakov <georgi.djakov@linaro.org>
 
 --- a/drivers/base/power/opp/core.c
 +++ b/drivers/base/power/opp/core.c
-@@ -1620,6 +1620,83 @@ put_table:
+@@ -1608,6 +1608,83 @@ put_table:
  }
  
  /**
@@ -145,3 +145,4 @@ Signed-off-by: Georgi Djakov <georgi.djakov@linaro.org>
  static inline int dev_pm_opp_enable(struct device *dev, unsigned long freq)
  {
  	return 0;
+
