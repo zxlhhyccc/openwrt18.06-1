@@ -1,3 +1,4 @@
+  
 From 5c294df1715d673f94f3b0a6e1ea3a426ca35e6e Mon Sep 17 00:00:00 2001
 From: Georgi Djakov <georgi.djakov@linaro.org>
 Date: Thu, 28 Apr 2016 16:20:12 +0300
@@ -10,7 +11,7 @@ Signed-off-by: Georgi Djakov <georgi.djakov@linaro.org>
 
 --- a/drivers/base/power/opp/core.c
 +++ b/drivers/base/power/opp/core.c
-@@ -1292,11 +1292,13 @@ struct opp_table *dev_pm_opp_set_regulat
+@@ -1280,11 +1280,13 @@ struct opp_table *dev_pm_opp_set_regulat
  	if (!opp_table)
  		return ERR_PTR(-ENOMEM);
  
