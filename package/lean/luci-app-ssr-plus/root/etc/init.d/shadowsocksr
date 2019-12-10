@@ -1084,7 +1084,7 @@ stop() {
 	killall -q -9 ssr-monitor
 	killall -q -9 ss-redir
 	killall -q -9 ssr-redir
-                 killall -q -9 trojan
+        killall -q -9 trojan
 	killall -q -9 v2ray
 	killall -q -9 ssr-server
 	killall -q -9 ss-server
@@ -1099,8 +1099,8 @@ stop() {
 	killall -q -9 obfs-local
 	killall -q -9 obfs-server
 	killall -q -9 chinadns
-                 killall -q -9 udp2raw
-                 killall -q -9 udpspeeder
+        killall -q -9 udp2raw
+        killall -q -9 udpspeeder
                  /usr/bin/udp2raw --clear >/dev/null
 	if [ -f /var/run/pdnsd.pid ] ;then
 		kill $(cat /var/run/pdnsd.pid) >/dev/null 2>&1
