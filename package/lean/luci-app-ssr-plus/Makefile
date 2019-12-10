@@ -1,10 +1,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-ssr-plus
-PKG_VERSION:=1.32
+PKG_VERSION:=1.39
 PKG_RELEASE:=8
 PKG_CONFIG_DEPENDS:= CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_V2ray \
+	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Trojan \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Kcptun:kcptun \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Server \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Server \
@@ -30,6 +31,10 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray
 	bool "Include V2ray"
+	default n
+	
+config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
+	bool "Include Trojan"
 	default n
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_Kcptun
@@ -95,13 +100,14 @@ endef
 
 define Package/luci-app-ssr-plus
  	SECTION:=luci
-	CATEGORY:=LuCI
+	CATEGORY:=LuCI for Leo Jo
 	SUBMENU:=3. Applications
-	TITLE:=SS/SSR/V2Ray LuCI interface
+	TITLE:=SS/SSR/V2Ray/Trojan LuCI interface
 	PKGARCH:=all
 	DEPENDS:=+shadowsocksr-libev-alt +ipset +ip-full +iptables-mod-tproxy +dnsmasq-full +coreutils +coreutils-base64 +bash +pdnsd-alt +wget +curl +unzip \
             +PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks:shadowsocks-libev-ss-redir \
             +PACKAGE_$(PKG_NAME)_INCLUDE_V2ray:v2ray \
+	    +PACKAGE_$(PKG_NAME)_INCLUDE_Trojan:trojan \
             +PACKAGE_$(PKG_NAME)_INCLUDE_Kcptun:kcptun-client \
             +PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Server:shadowsocksr-libev-server \
             +PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Server:shadowsocks-libev-ss-server \
