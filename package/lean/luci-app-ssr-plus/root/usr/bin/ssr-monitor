@@ -248,7 +248,9 @@ do
 			logger -t "$NAME" "haproxy error.restart!"
 			echo "$(date "+%Y-%m-%d %H:%M:%S") haproxy error.restart!" >> ${logfile}
 			/etc/init.d/shadowsocksr restart
-		#udp2raw
+		fi
+	fi
+#udp2raw
 	if [ $(uci_get_by_type udp2raw udp2raw_enable) = 1 ] ;then
 		ucount=`ps -w | grep udp2raw |grep -v grep| wc -l`
 		if [ $ucount = 0 ] ;then
@@ -272,4 +274,5 @@ do
 		fi
 	fi
 done
+
 
