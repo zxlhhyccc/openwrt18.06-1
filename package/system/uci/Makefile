@@ -9,13 +9,14 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=uci
-PKG_RELEASE:=1
+PKG_RELEASE:=3
 
-PKG_SOURCE_URL=$(PROJECT_GIT)/project/uci.git
+#PKG_SOURCE_URL=$(PROJECT_GIT)/project/uci.git
+PKG_SOURCE_URL=https://gitlab.com/ynezz/openwrt-uci.git
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_DATE=2018-08-11
-PKG_SOURCE_VERSION:=4c8b4d6efc8302b508d261573351fffb75bd98c2
-PKG_MIRROR_HASH:=c1f0f565921c71ff9231508c7c249baacad4c3ae1a3fade25c37bcb2bf7a7b5f
+PKG_SOURCE_DATE=2019-12-12
+PKG_SOURCE_VERSION:=165b444131453d63fc78c1d86f23c3ca36a2ffd7
+PKG_MIRROR_HASH:=d4baa6454523ee11ecbfc49188e949a76c07deebf4d048049847b3d1d5e5e40c
 
 PKG_LICENSE:=LGPL-2.1
 PKG_LICENSE_FILES:=
@@ -35,6 +36,7 @@ define Package/libuci
   CATEGORY:=Libraries
   TITLE:=C library for the Unified Configuration Interface (UCI)
   DEPENDS:=+libubox
+  ABI_VERSION:=20130104
 endef
 
 define Package/uci
