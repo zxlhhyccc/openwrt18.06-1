@@ -21,7 +21,7 @@ luci-app-arpbind luci-app-vlmcsd luci-app-wifischedule luci-app-wol luci-app-ram
 luci-app-qos-gargoyle libericstools gargoyle-firewall-util libiptbwctl qos-gargoyle kmod-ipt-ndpi kmod-ipt-webmon \
 luci-app-sfe luci-app-flowoffload luci-app-nlbwmon luci-app-xlnetacc
 # For nas targets
-DEFAULT_PACKAGES.nas:=fdisk lsblk mdadm automount autosamba luci-app-usb-printer 
+DEFAULT_PACKAGES.nas:=fdisk lsblk mdadm automount  luci-app-usb-printer 
 # For router targets
 DEFAULT_PACKAGES.router:=dnsmasq-full iptables ppp ppp-mod-pppoe firewall kmod-ipt-offload kmod-tcp-bbr
 DEFAULT_PACKAGES.bootloader:=
