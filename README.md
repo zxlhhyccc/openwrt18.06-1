@@ -13,7 +13,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 
 5.   make menuconfig   最后选好你要的路由  
 
-6.输入   make  V=99  开始编译  
+6.   输入   make  V=99  开始编译  
 
 # 默认登陆IP 192.168.1.1, 密码 password
 
