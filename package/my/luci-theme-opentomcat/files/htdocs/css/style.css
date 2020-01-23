@@ -166,7 +166,6 @@ input,
     border-radius: 3px;
 }
 
-
 select:not([multiple="multiple"]):focus,
 input:focus {
     border-color: #0099CC;
