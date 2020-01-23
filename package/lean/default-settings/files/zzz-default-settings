@@ -112,8 +112,7 @@ sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispat
 /etc/init.d/v2ray_server stop
 /etc/init.d/samba4 stop
 /etc/init.d/samba stop
-/etc/init.d/netdata stop
-/etc/init.d/netdata disable
+
 
 
 
