@@ -9,8 +9,8 @@
 
 name: OpenWrt-CI
 on:
-   push:
-    branches: 
+  #push:
+  # branches: 
       - master
   # schedule:
   #   - cron: 0 20 * * *
@@ -52,8 +52,9 @@ jobs:
       - name: 自定义插件
         run: |
            cd package/diy
-           git clone   https://github.com/Flowers-in-thorns/luci-app-vssr-coexist
+           git clone  https://github.com/Flowers-in-thorns/luci-app-vssr-coexist
            git clone  https://github.com/Lienol/openwrt-package
+           git clone  https://github.com/vernesong/OpenClash
            
 
       - name: Update feeds
@@ -172,8 +173,12 @@ jobs:
            CONFIG_PACKAGE_luci-app-webadmin=y
            CONFIG_PACKAGE_luci-app-udpxy=y
            CONFIG_PACKAGE_luci-app-serverchan=y
+           CONFIG_PACKAGE_luci-app-usb-printer=y
            CONFIG_PACKAGE_luci-app-nps=y
+           CONFIG_PACKAGE_luci-app-cpulimit=y
            CONFIG_PACKAGE_luci-app-netdata=y
+           CONFIG_PACKAGE_luci-app-cupsd=y
+           CONFIG_PACKAGE_luci-app-unblockmusic=y
            CONFIG_PACKAGE_UnblockNeteaseMusic=y
            CONFIG_PACKAGE_luci-app-qos=y
            CONFIG_PACKAGE_luci-app-advancedsetting=y
@@ -183,7 +188,8 @@ jobs:
            CONFIG_PACKAGE_kmod-tcp-bbr-mod=y
            CONFIG_PACKAGE_kmod-tcp-bbr-nanqinlang=y
            CONFIG_PACKAGE_luci-app-vssr-coexist=y
-          # CONFIG_PACKAGE_luci-app-wrtbwmon=y
+           CONFIG_LUCI_LANG_en=y
+           CONFIG_LUCI_LANG_zh-tw=y
            EOF
           # LuCI主题:
            cat >> .config <<EOF
