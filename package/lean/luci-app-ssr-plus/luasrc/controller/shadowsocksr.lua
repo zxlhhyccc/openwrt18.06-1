@@ -38,9 +38,46 @@ entry({"admin", "vpn", "shadowsocksr", "appointlist"},form("shadowsocksr/appoint
     entry({"admin", "vpn", "shadowsocksr", "run"}, call("act_status"))
     entry({"admin", "vpn", "shadowsocksr", "change"}, call("change_node"))
     entry({"admin", "vpn", "shadowsocksr", "allserver"}, call("get_servers"))
+    entry({"admin", "vpn", "shadowsocksr", "subscribe"}, call("get_subscribe"))
     entry({"admin", "vpn", "shadowsocksr", "ping"}, call("act_ping")).leaf=true
 end
+function get_subscribe()
 
+    local cjson = require "cjson"
+    local e = {}
+    local uci = luci.model.uci.cursor()
+    local auto_update = luci.http.formvalue("auto_update")
+    local auto_update_time = luci.http.formvalue("auto_update_time")
+    local proxy = luci.http.formvalue("proxy")
+    local subscribe_url = luci.http.formvalue("subscribe_url")
+    if subscribe_url ~= "[]" then
+        local cmd1 = 'uci set shadowsocksr.@server_subscribe[0].auto_update="' ..
+                         auto_update .. '"'
+        local cmd2 = 'uci set shadowsocksr.@server_subscribe[0].auto_update_time="' ..
+                         auto_update_time .. '"'
+        local cmd3 = 'uci set shadowsocksr.@server_subscribe[0].proxy="' .. proxy .. '"'
+        luci.sys.call('uci delete shadowsocksr.@server_subscribe[0].subscribe_url ')
+        luci.sys.call(cmd1)
+        luci.sys.call(cmd2)
+        luci.sys.call(cmd3)
+        for k, v in ipairs(cjson.decode(subscribe_url)) do
+            luci.sys.call(
+                'uci add_list shadowsocksr.@server_subscribe[0].subscribe_url="' .. v ..
+                    '"')
+        end
+        luci.sys.call('uci commit shadowsocksr')
+        luci.sys.call(
+            "nohup /usr/share/shadowsocksr/subscribe.sh >/www/check_update.htm 2>/dev/null &")
+        
+        e.error = 0
+    else
+        e.error = 1
+    end
+
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(e)
+
+end
 
 -- 检测全局服务器状态
 function act_status()
