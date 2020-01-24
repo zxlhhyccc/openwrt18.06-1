@@ -53,7 +53,7 @@ jobs:
         run: |
            cd package/diy
            git clone  https://github.com/Flowers-in-thorns/luci-app-vssr-coexist
-           git clone  https://github.com/Lienol/openwrt-package
+           git clone  https://github.com/Sweet-Fairy/openwrt-package
            git clone  https://github.com/vernesong/OpenClash
            
 
