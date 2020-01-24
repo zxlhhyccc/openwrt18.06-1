@@ -166,7 +166,6 @@ input,
     border-radius: 3px;
 }
 
-
 select:not([multiple="multiple"]):focus,
 input:focus {
     border-color: #0099CC;
@@ -333,7 +332,7 @@ footer > a {
 }
 
 header {
-	background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%)!important;
+	background: linear-gradient(87deg, #0099CC, #0099CC 100%)!important;
 	color: white;
 }
 header > .container {
@@ -533,7 +532,10 @@ color: #8965e0!important;
     content: "\e01b";
  color: #11cdef!important;
 }
-
+.main > .main-left > .nav > .slide > a[data-title="新春版客户端"]:before {
+    content: "\e01a";
+ color: #00e09e!important;
+}
 .main > .main-left > .nav > .slide > a[data-title="NAS"]:before {
     content: "\e00b";
    color: #F1C40F!important;
@@ -615,7 +617,10 @@ color: #2dce89!important;
 
 .main > .main-left > .nav > li:hover,
 .main > .main-left > .nav > .slide > .menu:hover {
-    background: #333;
+color: #FF99CC;
+	background: #CCFFFF;
+
+
 }
 
 .main > .main-left > .nav > .slide:hover {
@@ -645,7 +650,7 @@ color: #2dce89!important;
 }
 
 .main > .main-left > .nav > .slide > .slide-menu > .active {
-    background-color: #1a1a1a;
+   
 }
 
 .main > .main-left > .nav > .slide > .slide-menu > li > a {
@@ -668,18 +673,23 @@ color: #2dce89!important;
 }
 
 .main > .main-left > .nav > .slide > .slide-menu > .active > a {
-  /* border-left: #ffffff 10px solid; */
-  color: white;
+ /* border-left: #ffffff 15px solid; */
+  color: #FFFF00;
+
 
 }
 
 .main > .main-left > .nav > .slide > .slide-menu > li:hover {
-    background: 	#00BFFF ;
+       /* border-left: #ffffff 3px solid; */
+	color: white;
+	background: #3366CC;
 }
 
 .main > .main-left > .nav > .slide > .slide-menu > .active:hover {
-    background-color: 		#4682B4 ;
-    cursor: hand;
+   /* border-left: #ffffff 3px solid; */
+	color: white;
+	background-color: #003366;
+	cursor: hand;
 }
 
 
@@ -840,7 +850,7 @@ fieldset > .table > .tr:nth-of-type(odd) {
 #memcache > div > div,
 #memtotal > div > div {
     height: 1.4rem !important;
-    background-color: #e4eaec !important;
+    background-color: #44cef6!important;
 }
 
 /* fix multiple table */
@@ -1005,7 +1015,7 @@ form.inline + form.inline,
 	color: #525f7f;
 }
 .cbi-tabmenu > li[class~="cbi-tab"] {
-    background-color: white;
+    background-color: #CCCCFF;
 }
 
 
@@ -1085,6 +1095,7 @@ form.inline + form.inline,
 .cbi-map-descr {
     margin-bottom:10px;
     padding-left:5px;
+    color: #03A9F4  ;
     font-size: small;
 }
 

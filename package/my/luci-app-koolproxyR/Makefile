@@ -16,7 +16,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/luci-app-koolproxyR
 	SECTION:=luci
-	CATEGORY:=LuCI for Leo Jo
+	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
 	TITLE:=LuCI support for koolproxyR
 	DEPENDS:=+openssl-util +ipset +dnsmasq-full +@BUSYBOX_CONFIG_DIFF +iptables-mod-nat-extra +wget
