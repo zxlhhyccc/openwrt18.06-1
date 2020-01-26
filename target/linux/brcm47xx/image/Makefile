@@ -715,7 +715,6 @@ define Device/linksys-e1000
   $(Device/linksys)
   DEVICE_ID := E100
   VERSION := 1.1.3
-  DEFAULT := n
 endef
 TARGET_DEVICES += linksys-e1000
 

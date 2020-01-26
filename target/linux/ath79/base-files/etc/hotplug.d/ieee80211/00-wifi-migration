@@ -15,7 +15,8 @@ migrate_wifi_path() {
 
 			case "$board" in
 				tplink,archer-c7-v1|\
-				tplink,archer-c7-v2)
+				tplink,archer-c7-v2|\
+				zyxel,nbg6716)
 					path="pci0000:00/0000:00:00.0"
 					WIFI_PATH_CHANGED=1
 				;;
@@ -24,11 +25,12 @@ migrate_wifi_path() {
 				;;
 			esac
 		;;
-		"platform/qca955x_wmac")
-			path="platform/ahb/ahb:apb/18100000.wmac"
-			WIFI_PATH_CHANGED=1
-		;;
-		"platform/ar933x_wmac")
+		"platform/ahb/ahb:apb/18100000.wmac"|\
+		"platform/ar933x_wmac"|\
+		"platform/ar934x_wmac"|\
+		"platform/qca953x_wmac"|\
+		"platform/qca955x_wmac"|\
+		"platform/qca956x_wmac")
 			path="platform/ahb/18100000.wmac"
 			WIFI_PATH_CHANGED=1
 		;;

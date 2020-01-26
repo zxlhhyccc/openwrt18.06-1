@@ -107,7 +107,7 @@ IEEE8021X := wpad-basic
 B43 := $(IEEE8021X) kmod-b43
 BRCMFMAC_43602A1 := $(IEEE8021X) kmod-brcmfmac brcmfmac-firmware-43602a1-pcie
 BRCMFMAC_4366B1 := $(IEEE8021X) kmod-brcmfmac brcmfmac-firmware-4366b1-pcie
-BRCMFMAC_4366C0 := $(IEEE8021X) kmod-brcmfmac brcmfmac-firmware-4366c0-pcie
+BRCMFMAC_4366C0 := $(IEEE8021X) kmod-brcmfmac k3wifi
 USB2_PACKAGES := kmod-usb-ohci kmod-usb2 kmod-phy-bcm-ns-usb2
 USB2_PACKAGES += kmod-usb-ledtrig-usbport
 USB3_PACKAGES := $(USB2_PACKAGES) kmod-usb3 kmod-phy-bcm-ns-usb3
@@ -315,10 +315,22 @@ TARGET_DEVICES += smartrg-sr400ac
 
 define Device/phicomm-k3
   DEVICE_TITLE := PHICOMM K3
-  DEVICE_PACKAGES := $(BRCMFMAC_4366C0) $(USB3_PACKAGES)
+  DEVICE_PACKAGES := $(BRCMFMAC_4366C0) $(USB3_PACKAGES) k3screenctrl
   IMAGES := trx
 endef
 TARGET_DEVICES += phicomm-k3
+
+define Device/arris-sbr-ac1900p
+  DEVICE_TITLE := ARRIS SBR-AC1900P
+  DEVICE_PACKAGES := $(USB3_PACKAGES)
+endef
+TARGET_DEVICES += arris-sbr-ac1900p
+
+define Device/arris-sbr-ac3200p
+  DEVICE_TITLE := ARRIS SBR-AC3200P
+  DEVICE_PACKAGES := $(BRCMFMAC_43602A1) $(USB3_PACKAGES)
+endef
+TARGET_DEVICES += arris-sbr-ac3200p
 
 define Device/tenda-ac9
   DEVICE_TITLE := Tenda AC9
@@ -326,7 +338,7 @@ define Device/tenda-ac9
   IMAGES := trx
   IMAGE/trx := append-rootfs | trx-serial
 endef
-TARGET_DEVICES += tenda-ac9
+#TARGET_DEVICES += tenda-ac9
 
 define Device/tplink-archer-c5-v2
   DEVICE_TITLE := TP-LINK Archer C5 V2
@@ -335,7 +347,7 @@ define Device/tplink-archer-c5-v2
   IMAGE/bin := append-rootfs | bcm53xx-tplink-safeloader
   TPLINK_BOARD := ARCHER-C5-V2
 endef
-TARGET_DEVICES += tplink-archer-c5-v2
+#TARGET_DEVICES += tplink-archer-c5-v2
 
 define Device/tplink-archer-c9-v1
   DEVICE_TITLE := TP-LINK Archer C9 V1
@@ -344,6 +356,6 @@ define Device/tplink-archer-c9-v1
   IMAGE/bin := append-rootfs | bcm53xx-tplink-safeloader
   TPLINK_BOARD := ARCHERC9
 endef
-TARGET_DEVICES += tplink-archer-c9-v1
+#TARGET_DEVICES += tplink-archer-c9-v1
 
 $(eval $(call BuildImage))
