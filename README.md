@@ -15,7 +15,7 @@ sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git
 
 6.   输入   make  V=99  开始编译  
 
-##  默认登陆IP 192.168.1.1, 密码 password
+##  默认登陆IP 192.168.1.1, 密码 无密码
 
 This is the buildsystem for the OpenWrt Linux distribution.
 
