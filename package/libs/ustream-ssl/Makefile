@@ -10,6 +10,8 @@ PKG_SOURCE_VERSION:=30cebb4fc78e49e0432a404f7c9dd8c9a93b3cc3
 PKG_MIRROR_HASH:=b37b730b8fcd5186d7b194a6e90b79efad845ec89e2b9d2d49b4d347c7c4cbcb
 CMAKE_INSTALL:=1
 
+PKG_BUILD_DIR=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_SOURCE_SUBDIR)
+
 PKG_LICENSE:=ISC
 PKG_LICENSE_FILES:=
 
@@ -23,7 +25,7 @@ define Package/libustream/default
   CATEGORY:=Libraries
   TITLE:=ustream SSL Library
   DEPENDS:=+libubox
-  ABI_VERSION:=20150806
+  ABI_VERSION:=$(PKG_VERSION)
 endef
 
 define Package/libustream-openssl
@@ -49,8 +51,8 @@ define Package/libustream-mbedtls
 endef
 
 ifeq ($(BUILD_VARIANT),wolfssl)
-  TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include/wolfssl
-  CMAKE_OPTIONS += -DWOLFSSL=on
+  TARGET_CFLAGS += -I$(STAGING_DIR)/usr/include/cyassl -DHAVE_SNI
+  CMAKE_OPTIONS += -DCYASSL=on
 endif
 ifeq ($(BUILD_VARIANT),mbedtls)
   CMAKE_OPTIONS += -DMBEDTLS=on
