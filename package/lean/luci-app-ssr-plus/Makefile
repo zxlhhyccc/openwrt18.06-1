@@ -139,7 +139,7 @@ define Package/luci-app-ssr-plus
             +PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs:simple-obfs \
             +PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server:simple-obfs-server \
             +PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-client:gq-client \
-			+PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-server:gq-server \
+	    +PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-server:gq-server \
             +PACKAGE_$(PKG_NAME)_INCLUDE_v2ray-plugin:v2ray-plugin
 endef
 
