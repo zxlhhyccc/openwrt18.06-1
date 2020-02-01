@@ -60,31 +60,31 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Socks
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_dnscrypt_proxy
-	bool "dnscrypt-proxy-full"
+	bool "Include dnscrypt-proxy-full"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_dnsforwarder
-	bool "dnsforwarder"
+	bool "Include dnsforwarder"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_ChinaDNS
-	bool "chinadns"
+	bool "Include chinadns"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_haproxy
-	bool "haproxy"
+	bool "Include haproxy"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_privoxy
-	bool "privoxy http local"
+	bool "Include privoxy http local"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs
-	bool "simple-obfsl"
+	bool "Include simple-obfsl"
 	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server
-	bool "simple-obfs-server"
+	bool "Include simple-obfs-server"
 	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder
@@ -96,15 +96,15 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel
 	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-client
-	bool "GoQuiet-client"
+	bool "Include GoQuiet-client"
 	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-server
-	bool "GoQuiet-server"
+	bool "Include GoQuiet-server"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_v2ray-plugin
-	bool "v2ray-plugin"
+	bool "Include v2ray-plugin"
 	default y
 endef
 
