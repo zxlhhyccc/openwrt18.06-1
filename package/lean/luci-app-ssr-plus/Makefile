@@ -35,14 +35,6 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray
 	bool "Include V2ray"
 	default y
 
-config PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder
-	bool "Include udpspeeder"
-	default y
-
-config PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel
-	bool "Include udp2raw-tunnel"
-	default y
-
 config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
 	bool "Include Trojan"
 	default y
@@ -93,6 +85,14 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server
 	bool "simple-obfs-server"
+	default y
+	
+config PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder
+	bool "Include udpspeeder"
+	default y
+
+config PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel
+	bool "Include udp2raw-tunnel"
 	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-client
