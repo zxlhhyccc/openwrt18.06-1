@@ -110,7 +110,7 @@ endef
 
 define Package/luci-app-ssr-plus
  	SECTION:=luci
-	CATEGORY:=LuCI for Leo Jo
+	CATEGORY:=LuCI
 	SUBMENU:=3. Applications
 	TITLE:=SS/SSR/V2Ray/Trojan LuCI interface
 	PKGARCH:=all
