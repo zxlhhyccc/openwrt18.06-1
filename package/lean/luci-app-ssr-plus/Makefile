@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=luci-app-ssr-plus
-PKG_VERSION:=1.43
+PKG_VERSION:=1.45
 PKG_RELEASE:=8
 PKG_CONFIG_DEPENDS:= CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_V2ray \
@@ -15,6 +15,8 @@ PKG_CONFIG_DEPENDS:= CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_dnsforwarder \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_ChinaDNS \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_haproxy \
+        CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder \
+        CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_privoxy \
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs\
 	CONFIG_PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server\
@@ -31,6 +33,14 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray
 	bool "Include V2ray"
+	default y
+
+config PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder
+	bool "Include udpspeeder"
+	default y
+
+config PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel
+	bool "Include udp2raw-tunnel"
 	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
@@ -118,6 +128,8 @@ define Package/luci-app-ssr-plus
             +PACKAGE_$(PKG_NAME)_INCLUDE_ChinaDNS:ChinaDNS \
             +PACKAGE_$(PKG_NAME)_INCLUDE_haproxy:haproxy \
             +PACKAGE_$(PKG_NAME)_INCLUDE_privoxy:privoxy \
+            +PACKAGE_$(PKG_NAME)_INCLUDE_udpspeeder:udpspeeder \
+            +PACKAGE_$(PKG_NAME)_INCLUDE_udp2raw-tunnel:udp2raw-tunnel \
             +PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs:simple-obfs \
             +PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server:simple-obfs-server \
             +PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-client:gq-client \
