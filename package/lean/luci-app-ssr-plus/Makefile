@@ -35,7 +35,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_V2ray
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Trojan
 	bool "Include Trojan"
-	default n
+	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_Kcptun
 	bool "Include Kcptun"
@@ -47,7 +47,7 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Server
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Server
 	bool "Include Shadowsocks Server"
-	default n
+	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Socks
 	bool "Include ShadowsocksR Socks and Tunnel"
@@ -55,47 +55,47 @@ config PACKAGE_$(PKG_NAME)_INCLUDE_ShadowsocksR_Socks
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_Shadowsocks_Socks
 	bool "Include Shadowsocks Socks and Tunnel"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_dnscrypt_proxy
 	bool "dnscrypt-proxy-full"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_dnsforwarder
 	bool "dnsforwarder"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_ChinaDNS
 	bool "chinadns"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_haproxy
 	bool "haproxy"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_privoxy
 	bool "privoxy http local"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs
 	bool "simple-obfsl"
-	default n
+	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_simple-obfs-server
 	bool "simple-obfs-server"
-	default n
+	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-client
 	bool "GoQuiet-client"
-	default n
+	default y
 	
 config PACKAGE_$(PKG_NAME)_INCLUDE_GoQuiet-server
 	bool "GoQuiet-server"
-	default n
+	default y
 
 config PACKAGE_$(PKG_NAME)_INCLUDE_v2ray-plugin
 	bool "v2ray-plugin"
-	default n
+	default y
 endef
 
 define Package/luci-app-ssr-plus
