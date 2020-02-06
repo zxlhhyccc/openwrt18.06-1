@@ -8,12 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=util-linux
-PKG_VERSION:=2.34
+PKG_VERSION:=2.33
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=@KERNEL/linux/utils/$(PKG_NAME)/v2.34
-PKG_HASH:=743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5
+PKG_SOURCE_URL:=@KERNEL/linux/utils/$(PKG_NAME)/v2.33
+PKG_HASH:=f261b9d73c35bfeeea04d26941ac47ee1df937bd3b0583e748217c1ea423658a
 PKG_CPE_ID:=cpe:/a:kernel:util-linux
 
 PKG_LICENSE:=GPL-2.0
@@ -47,7 +47,6 @@ $(call Package/util-linux/Default)
   TITLE:=block device id library
   SECTION:=libs
   CATEGORY:=Libraries
-  ABI_VERSION:=1
 endef
 
 define Package/libblkid/description
@@ -63,7 +62,6 @@ $(call Package/util-linux/Default)
   TITLE:=partition manipulating library
   SECTION:=libs
   CATEGORY:=Libraries
-  ABI_VERSION:=1
 endef
 
 define Package/libfdisk/description
@@ -76,7 +74,6 @@ $(call Package/util-linux/Default)
   TITLE:=mount library
   SECTION:=libs
   CATEGORY:=Libraries
-  ABI_VERSION:=1
 endef
 
 define Package/libmount/description
@@ -89,7 +86,6 @@ $(call Package/util-linux/Default)
   TITLE:=DCE compatible Universally Unique Identifier library
   SECTION:=libs
   CATEGORY:=Libraries
-  ABI_VERSION:=1
 endef
 
 define Package/libuuid/description
@@ -104,7 +100,6 @@ $(call Package/util-linux/Default)
   TITLE:=table or tree library
   SECTION:=libs
   CATEGORY:=Libraries
-  ABI_VERSION:=1
 endef
 
 define Package/libsmartcols/description
@@ -315,16 +310,6 @@ define Package/lscpu/description
  lscpu displays information about the CPU architecture
 endef
 
-define Package/more
-$(call Package/util-linux/Default)
-  TITLE:=filter for paging through text one screenful at a time
-  DEPENDS:= +libncurses
-endef
-
-define Package/more/description
- more is a filter for paging through text one screenful at a time
-endef
-
 define Package/mcookie
 $(call Package/util-linux/Default)
   TITLE:=generate magic cookies for xauth
@@ -518,6 +503,7 @@ CONFIGURE_ARGS += \
 	--without-python		\
 	--without-udev			\
 	--without-readline		\
+	--disable-more			\
 	--with-ncursesw
 
 TARGET_CFLAGS += $(FPIC) -std=gnu99
@@ -558,27 +544,32 @@ endef
 
 define Package/libfdisk/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/lib/libfdisk.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/lib/libfdisk.so* $(1)/usr/lib/
+	$(LN) libfdisk.so.1 $(1)/usr/lib/libfdisk.so
 endef
 
 define Package/libblkid/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/lib/libblkid.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/lib/libblkid.so* $(1)/usr/lib/
+	$(LN) libblkid.so.1 $(1)/usr/lib/libblkid.so
 endef
 
 define Package/libmount/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/lib/libmount.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/lib/libmount.so* $(1)/usr/lib/
+	$(LN) libmount.so.1 $(1)/usr/lib/libmount.so
 endef
 
 define Package/libsmartcols/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/lib/libsmartcols.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/lib/libsmartcols.so* $(1)/usr/lib/
+	$(LN) libsmartcols.so.1 $(1)/usr/lib/libsmartcols.so
 endef
 
 define Package/libuuid/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/lib/libuuid.so.* $(1)/usr/lib/
+	$(CP) $(PKG_INSTALL_DIR)/lib/libuuid.so* $(1)/usr/lib/
+	$(LN) libuuid.so.1 $(1)/usr/lib/libuuid.so
 endef
 
 define Package/agetty/install
@@ -674,11 +665,6 @@ endef
 define Package/lscpu/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/lscpu $(1)/usr/bin/
-endef
-
-define Package/more/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/more $(1)/usr/bin/
 endef
 
 define Package/mcookie/install
@@ -796,7 +782,6 @@ $(eval $(call BuildPackage,look))
 $(eval $(call BuildPackage,losetup))
 $(eval $(call BuildPackage,lsblk))
 $(eval $(call BuildPackage,lscpu))
-$(eval $(call BuildPackage,more))
 $(eval $(call BuildPackage,mcookie))
 $(eval $(call BuildPackage,mount-utils))
 $(eval $(call BuildPackage,namei))
