@@ -101,9 +101,9 @@ jobs:
            CONFIG_TARGET_x86_64_Generic=y
            EOF
           # 固件压缩:
-            cat >> .config <<EOF
-            CONFIG_TARGET_IMAGES_GZIP=y
-            EOF
+          #  cat >> .config <<EOF
+          #  CONFIG_TARGET_IMAGES_GZIP=y
+          #  EOF
           # 编译UEFI固件:
           # cat >> .config <<EOF
           # CONFIG_EFI_IMAGES=y
@@ -137,11 +137,11 @@ jobs:
            CONFIG_PACKAGE_luci-app-baidupcs-web=y
           # CONFIG_PACKAGE_luci-app-docker=y
            CONFIG_PACKAGE_luci-app-frpc=y
-          # CONFIG_PACKAGE_luci-app-kodexplorer=y
+           CONFIG_PACKAGE_luci-app-kodexplorer=y
            CONFIG_PACKAGE_luci-app-minidlna=y
            CONFIG_PACKAGE_luci-app-openvpn=y
            CONFIG_PACKAGE_luci-app-openvpn-server=y
-          # CONFIG_PACKAGE_luci-app-qbittorrent=y
+           CONFIG_PACKAGE_luci-app-qbittorrent=y
            CONFIG_PACKAGE_luci-app-trojan-server=y
            CONFIG_PACKAGE_luci-app-familycloud=y
            CONFIG_PACKAGE_luci-app-smartinfo=y
@@ -153,7 +153,7 @@ jobs:
            CONFIG_PACKAGE_luci-app-ttyd=y
            CONFIG_PACKAGE_luci-app-mwan3=y
            CONFIG_PACKAGE_luci-app-mwan3helper=y
-          # CONFIG_PACKAGE_luci-app-openclash=y
+           CONFIG_PACKAGE_luci-app-openclash=y
            CONFIG_PACKAGE_luci-app-v2ray-server=y
            CONFIG_PACKAGE_luci-app-verysync=y
            CONFIG_PACKAGE_luci-app-webadmin=y
@@ -164,8 +164,8 @@ jobs:
            CONFIG_PACKAGE_luci-app-cpulimit=y
            CONFIG_PACKAGE_luci-app-netdata=y
            CONFIG_PACKAGE_luci-app-cupsd=y
-          # CONFIG_PACKAGE_luci-app-unblockmusic=y
-          # CONFIG_PACKAGE_UnblockNeteaseMusic=y
+           CONFIG_PACKAGE_luci-app-unblockmusic=y
+           CONFIG_PACKAGE_UnblockNeteaseMusic=y
            CONFIG_PACKAGE_luci-app-qos=y
            CONFIG_PACKAGE_luci-app-advancedsetting=y
           # CONFIG_PACKAGE_luci-app-clash=y
