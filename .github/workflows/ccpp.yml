@@ -189,7 +189,7 @@ jobs:
            CONFIG_PACKAGE_UnblockNeteaseMusic=y
            CONFIG_PACKAGE_luci-app-qos=y
            CONFIG_PACKAGE_luci-app-advancedsetting=y
-          # CONFIG_PACKAGE_luci-app-clash=y
+           CONFIG_PACKAGE_luci-app-clash=y
            CONFIG_PACKAGE_luci-app-qosv4=y
            CONFIG_PACKAGE_luci-app-samba=y
            CONFIG_PACKAGE_luci-app-smartdns=y
@@ -201,7 +201,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-appfilter=y
           # CONFIG_PACKAGE_luci-app-adblock=y
           # CONFIG_PACKAGE_luci-app-cd8021x=y
-          # CONFIG_PACKAGE_luci-app-chinadns=y
+            CONFIG_PACKAGE_luci-app-chinadns=y
           # CONFIG_PACKAGE_luci-app-cifs=y
           # CONFIG_PACKAGE_luci-app-cifsd=y
           # CONFIG_PACKAGE_luci-app-banip=y
@@ -211,7 +211,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-control-timewol=y
           # CONFIG_PACKAGE_luci-app-control-webrestriction=y
           # CONFIG_PACKAGE_luci-app-control-weburl=y
-          # CONFIG_PACKAGE_luci-app-dnspod=y
+            CONFIG_PACKAGE_luci-app-dnspod=y
           # CONFIG_PACKAGE_luci-app-filebrowser=y
           # CONFIG_PACKAGE_luci-app-fileassistant=y
           # CONFIG_PACKAGE_luci-app-haproxy-tcp=y
@@ -224,8 +224,8 @@ jobs:
           # CONFIG_PACKAGE_luci-app-samba4=y
           # CONFIG_PACKAGE_luci-app-softethervpn5=y
           # CONFIG_PACKAGE_luci-app-speederv2=y
-          # CONFIG_PACKAGE_luci-app-ssr-libev-server=y
-          # CONFIG_PACKAGE_luci-app-ssr-python-pro-server=y
+            CONFIG_PACKAGE_luci-app-ssr-libev-server=y
+            CONFIG_PACKAGE_luci-app-ssr-python-pro-server=y
           # CONFIG_PACKAGE_luci-app-transmission=y
            CONFIG_LUCI_LANG_en=y
            CONFIG_LUCI_LANG_zh-tw=y
