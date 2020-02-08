@@ -64,7 +64,7 @@ jobs:
            git clone  https://github.com/Flowers-in-thorns/luci-app-vssr-coexist
            git clone  https://github.com/Sweet-Fairy/openwrt-package
            git clone  https://github.com/vernesong/OpenClash
-           git clone  https://github.com/frainzy1477/luci-app-clash
+           git clone  https://github.com/Leo-Jo-My/luci-app-clash
            git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
            git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
            cd ../..
@@ -189,7 +189,7 @@ jobs:
            CONFIG_PACKAGE_UnblockNeteaseMusic=y
            CONFIG_PACKAGE_luci-app-qos=y
            CONFIG_PACKAGE_luci-app-advancedsetting=y
-          # CONFIG_PACKAGE_luci-app-clash=y
+           CONFIG_PACKAGE_luci-app-clash=y
             CONFIG_PACKAGE_parted=y  
            CONFIG_PACKAGE_luci-app-qosv4=y
            CONFIG_PACKAGE_luci-app-samba=y
