@@ -52,10 +52,21 @@ jobs:
       - name: 自定义插件
         run: |
            cd package/diy
+           tar   xvJf  luci-app-smartdns.tar.xz
+           tar   xvJf  smartdns.tar.xz
+           tar   xvJf  luci-app-docker.tar.xz
+           tar   xvJf  luci-app-koolddns.tar.xz
+           tar   xvJf  luci-app-rclone.tar.xz
+           tar   xvJf  rclone-webui-react.tar.xz
+           tar   xvJf  rclone.tar.xz
+           tar   xvJf  luci-app-diskman.tar.xz
+           tar   xvJf  parted.tar.xz
            git clone  https://github.com/Flowers-in-thorns/luci-app-vssr-coexist
            git clone  https://github.com/Sweet-Fairy/openwrt-package
            git clone  https://github.com/vernesong/OpenClash
            git clone  https://github.com/frainzy1477/luci-app-clash
+           git clone https://github.com/lisaac/luci-lib-docker.git package/luci-lib-docker
+           git clone https://github.com/lisaac/luci-app-dockerman.git package/luci-app-dockerman
            cd ../..
            cd target/linux/x86/image
            chmod u+x  gen_image_efi.sh
@@ -139,8 +150,14 @@ jobs:
            CONFIG_PACKAGE_luci-app-adbyby-plus=y
            CONFIG_PACKAGE_luci-app-aria2=y
            CONFIG_PACKAGE_luci-app-baidupcs-web=y
-          # CONFIG_PACKAGE_luci-app-docker=y
+           CONFIG_PACKAGE_luci-app-docker=y
+           CONFIG_PACKAGE_luci-lib-docker=y
+           CONFIG_PACKAGE_luci-app-dockerman=y
+           CONFIG_PACKAGE_luci-app-diskman=y
+           CONFIG_PACKAGE_luci-app-aliddns=y
+           CONFIG_PACKAGE_luci-app-rclone=y
            CONFIG_PACKAGE_luci-app-frpc=y
+           CONFIG_PACKAGE_luci-app-koolddns=y
            CONFIG_PACKAGE_luci-app-kodexplorer=y
            CONFIG_PACKAGE_luci-app-minidlna=y
            CONFIG_PACKAGE_luci-app-openvpn=y
@@ -175,7 +192,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-clash=y
            CONFIG_PACKAGE_luci-app-qosv4=y
            CONFIG_PACKAGE_luci-app-samba=y
-          # CONFIG_PACKAGE_luci-app-smartdns=y
+           CONFIG_PACKAGE_luci-app-smartdns=y
            CONFIG_PACKAGE_kmod-tcp-bbr-mod=y
            CONFIG_PACKAGE_kmod-tcp-bbr-nanqinlang=y
            CONFIG_PACKAGE_luci-app-vssr-coexist=y
