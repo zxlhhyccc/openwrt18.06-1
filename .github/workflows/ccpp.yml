@@ -281,4 +281,10 @@ jobs:
         with:
           name: OpenWrt firmware
           path: ./bin/targets/
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: OpenWrt18.06 IPK
+          path: ./bin/packages/
 
